@@ -2,9 +2,11 @@
 <html>
 <head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
 </head>
 <body>
-<h1>Address Book - Contacts</h1>
+<div style="padding:20px;">
+  <h1>Address Book - Contacts</h1>
  <%= link_to 'New Contact', new_contact_path %>
 <table class="table table-striped">
   <tr>
@@ -12,6 +14,7 @@
     <th>Phone</th>
     <th>Email</th>
     <th>Address</th>
+    <th colspan=3>Action</th>
   </tr>
  
   <% @contacts.each do |contact| %>
@@ -20,8 +23,14 @@
       <td><%= contact.phone %></td>
       <td><%= contact.email %></td>
       <td><%= contact.address %></td>
+      <td><%= link_to 'Show', contact_path(contact) %></td>
+      <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
+       <td><%= link_to 'Delete', contact_path(contact),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
 </table>
+</div>
 </body>
 </html>
