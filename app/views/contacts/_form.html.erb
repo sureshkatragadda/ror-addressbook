@@ -1,0 +1,8 @@
+
+<%= simple_form_for @contact, remote: true do |f|   %>
+  <%= f.input  :name, as: :text           %>
+  <%= f.input  :phone, as: :text           %>
+  <%= f.input  :email, as: :text           %>
+  <%= f.input  :address, as: :text           %>
+  <%= f.button :submit %>
+<% end %>
